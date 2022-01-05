@@ -1,0 +1,63 @@
+﻿@model AspNetCoreMVCNewNetflix.Models.MovieViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>MovieViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MvId" class="control-label" hidden="true"></label>
+                <input asp-for="MvId" class="form-control" value="0" hidden="true"/>
+                <span asp-validation-for="MvId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MvTitle" class="control-label"></label>
+                <input asp-for="MvTitle" class="form-control" />
+                <span asp-validation-for="MvTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MvDate" class="control-label"></label>
+                <input asp-for="MvDate" class="form-control" />
+                <span asp-validation-for="MvDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MvImg" class="control-label"></label>
+                <input asp-for="MvImg" class="form-control" />
+                <span asp-validation-for="MvImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MvDuration" class="control-label"></label>
+                <input asp-for="MvDuration" class="form-control" />
+                <span asp-validation-for="MvDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MvSynopsis" class="control-label"></label>
+                <input asp-for="MvSynopsis" class="form-control" />
+                <span asp-validation-for="MvSynopsis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GrId" class="control-label"></label>
+                <input asp-for="GrId" class="form-control" />
+                <span asp-validation-for="GrId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

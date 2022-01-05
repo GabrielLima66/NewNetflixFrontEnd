@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AspNetCoreMVCNewNetflix.Models.MovieViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Movies</h1>
+
+<p>
+    <a asp-action="Create">Adicionar Movie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+               Título
+            </th>
+            <th>
+                Ano
+            </th>
+            <th>
+               Banner
+            </th>
+            <th>
+                Duração
+            </th>
+            <th>
+                Sinopse
+            </th>
+            <th>
+                ID gênero
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MvId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MvTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MvDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MvImg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MvDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MvSynopsis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { @id = item.MvId }) |
+                @Html.ActionLink("Details", "Details", new { @id=item.MvId }) |
+                @Html.ActionLink("Delete", "Delete", new { @id=item.MvId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
